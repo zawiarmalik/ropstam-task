@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {TextInput, TouchableOpacity, View, Text} from 'react-native';
 import {fontColors, fontFamilies} from '../../Components/colors';
 import {styles} from './styling';
 import axios from 'axios';
+import {storeToken} from '../../TokensData/storeToken';
 import {useNavigation} from '@react-navigation/native';
 import Loader from '../../Components/Loader';
 const Login = () => {
@@ -23,16 +24,30 @@ const Login = () => {
       dataToSend,
     );
     console.log('response', JSON.stringify(response.data.meta.status));
-    global.token = response.data.data.access_token;
     setLoading(false);
     if (
       response.data.meta.status === '200' ||
       response.data.meta.status === 200
     ) {
       setLoading(false);
+      storeToken('TOKEN', response.data.data.access_token).then(() => {
+        global.token = response.data.data.access_token;
+        console.log('Token Stored', response.data.data.access_token);
+      });
+
       navigation.navigate('post');
     }
   };
+  useEffect(() => {
+    if (
+      global.token === '' ||
+      global.token === null ||
+      global.token === undefined
+    ) {
+    } else {
+      navigation.navigate('post');
+    }
+  });
   const render = () => {
     return (
       <View style={[styles.container]}>
