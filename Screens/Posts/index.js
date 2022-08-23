@@ -21,12 +21,14 @@ const Post = () => {
   }, []);
   return (
     <View style={[styles.container]}>
-      <Posts />
+      <View style={[styles.textContainer]}>
+        <Text style={styles.upperText}>Posts</Text>
+      </View>
       <FlatList
         data={apiData}
         renderItem={({item}) => {
           console.log('item', item);
-          // return <Posts data={item} />;
+          return <Posts heading={item.title} body={item.body} />;
         }}
       />
     </View>

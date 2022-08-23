@@ -8,45 +8,18 @@ const styles = StyleSheet.create({
     backgroundColor: fontColors.background,
     // justifyContent: 'center',
   },
-  button: {
-    width: '70%',
-    height: 35,
-    borderRadius: 10,
-    flexDirection: 'row',
-    marginTop: 30,
-    alignSelf: 'center',
-    borderColor: fontColors.theme,
-    backgroundColor: fontColors.theme,
-    justifyContent: 'center',
-  },
-  buttonText: {
-    fontSize: 15,
-    color: fontColors.background,
-    fontFamily: fontFamilies.bold,
-    alignSelf: 'center',
-  },
+
   upperText: {
     fontSize: 18,
-    color: fontColors.black,
+    color: fontColors.background,
     alignSelf: 'center',
-    marginBottom: 30,
+
+    marginVertical: 20,
     fontFamily: fontFamilies.bold,
   },
-  input: {
-    backgroundColor: fontColors.dullWhite,
-    fontFamily: fontFamilies.regular,
-    color: fontColors.black,
-    height: 40,
-    marginTop: 12,
-    flexDirection: 'row',
-    alignSelf: 'center',
-    width: '90%',
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: fontColors.dullWhite,
-    fontSize: 15,
-    alignItems: 'center',
-    paddingLeft: 30,
+  textContainer: {
+    width: '100%',
+    backgroundColor: fontColors.theme,
   },
 });
 export {styles};

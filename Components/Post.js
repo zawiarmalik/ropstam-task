@@ -5,8 +5,8 @@ import {fontColors, fontFamilies} from './colors';
 const Posts = props => (
   <View style={[styles.container]}>
     <View>
-      <Text style={styles.upperText}>{props.data}</Text>
-      <Text style={styles.bodyText}>{props.data}</Text>
+      <Text style={styles.upperText}>{props.heading}</Text>
+      <Text style={styles.bodyText}>{props.body}</Text>
     </View>
   </View>
 );
@@ -24,10 +24,12 @@ const styles = StyleSheet.create({
   upperText: {
     fontSize: 16,
     color: fontColors.black,
+    textAlign: 'justify',
     marginBottom: 10,
     fontFamily: fontFamilies.bold,
   },
   bodyText: {
+    textAlign: 'justify',
     fontSize: 14,
     color: fontColors.black,
     marginBottom: 10,
